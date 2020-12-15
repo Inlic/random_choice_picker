@@ -27,25 +27,28 @@ function createTags(input) {
 
 function randomSelect() {
   const times = 30
-
   const interval = setInterval(() => {
-    const randomTag = pickRandomTag()
-    hightlightTag(randomTag)
-    setTimeout(() => {
-      unHighlightTag(randomTag)
-    }, 100)
+    randomHighlight()
   }, 100);
-
   setTimeout(() => {
     clearInterval(interval)
-
-    setTimeout(() => {
-      const randomTag = pickRandomTag()
-      hightlightTag(randomTag)
-    }, 100)
-
+    finalHighlight()
   }, times * 100)
+}
 
+function randomHighlight() {
+  const randomTag = pickRandomTag()
+  hightlightTag(randomTag)
+  setTimeout(() => {
+    unHighlightTag(randomTag)
+  }, 100)
+}
+
+function finalHighlight() {
+  setTimeout(() => {
+    const randomTag = pickRandomTag()
+    hightlightTag(randomTag)
+  }, 100)
 }
 
 function pickRandomTag() {
